@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        /* Estilo general */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+a {
+    text-decoration: none;
+    color: #333;
+}
+
+a:hover {
+    color: #007BFF;
+}
+
+h1, h2, h3 {
+    font-weight: bold;
+    color: #222;
+}
+
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #007BFF;
+    padding: 1em;
+    display: flex;
+    justify-content: center;
+    gap: 1.5em;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+nav a {
+    color: #fff;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* Sección del banner */
+header {
+    background: linear-gradient(135deg, #007BFF, black);
+    color: #fff;
+    text-align: center;
+    padding: 4em 2em;
+}
+
+header h1 {
+    font-size: 2.5rem;
+}
+
+/* Sobre Mí */
+.about {
+    padding: 3em 2em;
+    background-color: #fff;
+    text-align: center;
+}
+
+.about h2 {
+    margin-bottom: 1em;
+}
+
+.about-card {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.social-icons {
+    margin-top: 1em;
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+}
+
+.social-icons a {
+    font-size: 1.5rem;
+    color: #007BFF;
+}
+
+/* Proyectos */
+.projects {
+    padding: 3em 2em;
+    background-color: #f1f1f1;
+}
+
+.projects h2 {
+    text-align: center;
+    margin-bottom: 2em;
+}
+
+.project-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2em;
+    background-color: #fff;
+    padding: 1em;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.project-item img {
+    max-width: 200px;
+    border-radius: 8px;
+}
+
+.project-item div {
+    margin-left: 1em;
+}
+
+.project-item h3 {
+    margin-bottom: 0.5em;
+}
+
+/* Habilidades */
+.skills {
+    padding: 3em 2em;
+    text-align: center;
+}
+
+.skills-list {
+    display: flex;
+    justify-content: center;
+    gap: 2em;
+    flex-wrap: wrap;
+}
+
+.skills-item {
+    width: 200px;
+    text-align: center;
+}
+
+.skills-item i {
+    font-size: 2.5rem;
+    color: #007BFF;
+}
+
+.progress-bar {
+    background-color: #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    height: 10px;
+    margin-top: 0.5em;
+}
+
+.progress {
+    background-color: #007BFF;
+    height: 100%;
+}
+
+/* Contacto */
+.contact {
+    padding: 3em 2em;
+    background-color: #fff;
+    text-align: center;
+}
+
+.contact h2 {
+    margin-bottom: 1.5em;
+}
+
+.contact-form {
+    max-width: 400px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.contact-form input, .contact-form textarea, .contact-form button {
+    width: 100%;
+    padding: 0.8em;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+.contact-form button {
+    background-color: #007BFF;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+}
+
+.contact-form button:hover {
+    background-color: #0056b3;
+}
+
+/* Footer */
+footer {
+    background-color: #007BFF;
+    color: #fff;
+    text-align: center;
+    padding: 1em;
+    margin-top: 3em;
+}
+
+/* Cookies */
+.cookie-consent {
+    position: fixed;
+    bottom: 1em;
+    right: 1em;
+    background: #333;
+    color: #fff;
+    padding: 1em;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.cookie-consent button {
+    background: #007BFF;
+    color: #fff;
+    border: none;
+    padding: 0.5em 1em;
+    border-radius: 8px;
+    margin-left: 1em;
+    cursor: pointer;
+}
+</style>
+</head>
+<body>
+
+    <!-- Sección 1: Banner / Inicio -->
+    <header>
+        <img src="Logo.png" alt="">
+        <nav>
+            <a href="#sobre-mi">Sobre Mí</a>
+            <a href="#proyectos">Proyectos</a>
+            <a href="#habilidades">Habilidades</a>
+            <a href="#contacto">Contacto</a>
+        </nav>
+    </header>
+
+    <!-- Sección de cookies -->
+    <div class="cookie-consent" id="cookieConsent">
+        Este sitio usa cookies para mejorar tu experiencia. <button onclick="acceptCookies()">Aceptar</button>
+    </div>
+
+    <!-- Sección 2: Sobre Mí -->
+    <section class="about" id="sobre-mi">
+        <div class="about-card">
+            <h2>Sobre Mí</h2>
+            <p>Buenas, soy un chico que estudia SMR2 y me gustaria trabajar de informatico dentro del ambito de ciberseguridad. Hice la ESO en el San José de Calasanz y el SMR1 en el mismo que estoy ahora, Enseñanzas Profesionales Sorolla, trabajo en un kiosco ubicado en manises y me gusta mucho hacer deporte, jugar a videojuegos y juegos de mesa y por ultimo lo que mas me gusta es la informatica.</p>
+            <div class="social-icons">
+                <a href="https://es.linkedin.com/" class="fab fa-linkedin"></a>
+                <a href="https://github.com/" class="fab fa-github"></a>
+                <a href="https://x.com/" class="fab fa-twitter"></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección 3: Proyectos -->
+    <section class="projects" id="proyectos">
+        <h2>Mis Proyectos</h2>
+        <!-- Proyecto 1 -->
+        <div class="project-item">
+            <img src="descarga.jpg" alt="Proyecto 1">
+            <div>
+                <h3>Proyecto 1: DHCP en un colegio</h3>
+                <p>Teniamos que hacer un proyecto en el que explicabamos porque poniamos un servidor en un sitio de un edificio que creamos nosotros y conectar todos los ordenadores a traves de dhcp.</p>
+            </div>
+        </div>
+        <!-- Proyecto 2 -->
+        <div class="project-item">
+            <img src="imagen.jpg" alt="Proyecto 2">
+            <div>
+                <h3>Proyecto 2: Tarea voluntaria para subir nota (HTML)</h3>
+                <p>Nos proporciono un pdf que tenia las indicaciones para seguir y a partir de ahi las seguimos empezaba asi: Genera el código de las siguientes páginas web. Ten en cuenta títulos, enlaces, formatos, etc.</p>
+            </div>
+        </div>
+        <!-- Proyecto 3 -->
+        <div class="project-item">
+            <img src="Captura de pantalla 2024-11-15 124906.png" alt="Proyecto 3">
+            <div>
+                <h3>Proyecto 3: Tema 3: CSS - Texto y fondos</h3>
+                <p>Nos proporciono un pdf que tenia las indicaciones para seguir y a partir de ahi las seguimos empezaba asi: Vamos a generar el código css de esta web: (Y nos puso una pagina web)</p>
+            </div>
+        </div>
+        <!-- Proyecto 4 -->
+        <div class="project-item">
+            <img src="imagen.webp" alt="Proyecto 4">
+            <div>
+                <h3>Proyecto 4: CSS Tarea 3: Cajas y Posicionamiento</h3>
+                <p>Sigue las instrucciones del PDF y adjunta la web HTML, el CSS y la imagen en un archivo comprimido en zip.</p>
+            </div>
+        </div>
+        <!-- Proyecto 5 -->
+        <div class="project-item">
+            <img src="Captura de pantalla 2024-11-15 125415.png" alt="Proyecto 5">
+            <div>
+                <h3>Proyecto 5: Tarea 4 - Imágenes y tablas (HTML)</h3>
+                <p>1ºRealiza el documento html que se pide en el pdf adjunto.</p>
+                <p>2ºAdjunta el archivo .html en la tarea.</p>
+                <p>3ºAdjunta también las imágenes que hayas puesto en la web y el favicon que hayas usado.</p>
+            </div>
+        </div>
+        <!-- Proyecto 6 -->
+        <div class="project-item">
+            <img src="edficio-inteligente.jpg" alt="Proyecto 6">
+            <div>
+                <h3>Proyecto 6: Medidas de seguridad en un edificio</h3>
+                <p>En este proyecto como bien dice en titulo tuvimos que crear y explicar las siguientes medidas de seguridad que le habiamos implementado a un edificio que habiamos creado nosotros con distintas herramientas que teniamos a nuestra propia disponibilidad</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección 4: Habilidades y Conocimientos -->
+    <section class="skills" id="habilidades">
+        <h2>Habilidades y Conocimientos</h2>
+        <div class="skills-list">
+            <div class="skills-item">
+                <i class="fab fa-html5"></i>
+                <h3>HTML</h3>
+                <p>HTML es el lenguaje que estructura las páginas web mediante etiquetas, definiendo elementos como texto, imágenes y enlaces.</p>
+                <div class="progress-bar">
+                    <div class="progress" style="width: 90%;"></div>
+                </div>
+            </div>
+            <div class="skills-item">
+                <i class="fab fa-css3-alt"></i>
+                <h3>CSS</h3>
+                <p>CSS es un lenguaje usado para estilizar y dar formato a las páginas web, controlando colores, fuentes y disposición de los elementos.</p>
+                <div class="progress-bar">
+                    <div class="progress" style="width: 85%;"></div>
+                </div>
+            </div>
+            <div class="skills-item">
+                <i class="fab fa-js"></i>
+                <h3>JavaScript</h3>
+                <p>JavaScript es un lenguaje de programación que agrega interactividad a las páginas web, permitiendo dinamismo y acciones en tiempo real.</p>
+                <div class="progress-bar">
+                    <div class="progress" style="width: 75%;"></div>
+                </div>
+            </div>
+            <div class="skills-item">
+                <i class="fab fa-python"></i>
+                <h3>Python</h3>
+                <p>Python es un lenguaje versátil utilizado en desarrollo backend y ciencia de datos, destacando en automatización, análisis de datos y desarrollo de aplicaciones.</p>
+                <div class="progress-bar">
+                    <div class="progress" style="width: 80%;"></div>
+                </div>
+            </div>
+            <div class="skills-item">
+                <i class="fab fa-react"></i>
+                <h3>React</h3>
+                <p>React es una biblioteca de JavaScript para construir interfaces de usuario dinámicas y modernas, optimizando el rendimiento y la reutilización de componentes.</p>
+                <div class="progress-bar">
+                    <div class="progress" style="width: 70%;"></div>
+                </div>
+            </div>
+            <div class="skills-item">
+                <i class="fab fa-git-alt"></i>
+                <h3>Git</h3>
+                <p>Control de versiones permite gestionar cambios en el código y facilitar la colaboración entre desarrolladores, mejorando la eficiencia en proyectos.</p>
+                <div class="progress-bar">
+                    <div class="progress" style="width: 85%;"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección 5: Formulario de Contacto -->
+    <section class="contact" id="contacto">
+        <h2>¿Quieres contratarme? ¡Hablemos!</h2>
+        <form class="contact-form" action="#" method="post">
+            <input type="text" name="nombre" placeholder="Tu Nombre" required>
+            <input type="email" name="correo" placeholder="Tu Correo" required>
+            <textarea name="mensaje" rows="4" placeholder="Tu Mensaje" required></textarea>
+            <button type="submit">Enviar</button>
+        </form>
+    </section>
+
+    <!-- Sección 6: Pie de Página -->
+    <footer>
+        <p>&copy; Pagina creada por Miguel, segura y verificada. © 2024 Miguel Jurado.</p>
+    </footer>
+
+    <script>
+        // Mostrar el aviso de cookies
+        window.onload = function() {
+            if (!localStorage.getItem('cookiesAccepted')) {
+                document.getElementById('cookieConsent').style.display = 'block';
+            }
+        }
+
+        // Aceptar cookies
+        function acceptCookies() {
+            localStorage.setItem('cookiesAccepted', 'true');
+            document.getElementById('cookieConsent').style.display = 'none';
+        }
+    </script>
+
+</body>
+</html>
