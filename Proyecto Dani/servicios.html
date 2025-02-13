@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servicios - CyberSentinel</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js"></script>
+    <link rel="icon" type="image/x-icon" href="Logo.png">
+    <style>
+        :root {
+            --primary-color: #2C3E50;
+            --secondary-color: #3498DB;
+            --accent-color: #E74C3C;
+            --light-gray: #f8f9fa;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background-color: var(--light-gray);
+        }
+
+        header {
+            background: var(--primary-color);
+            color: white;
+            padding: 1rem;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .services-container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            transition: transform 0.3s;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            color: var(--accent-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .service-title {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-price {
+            font-size: 2rem;
+            color: var(--accent-color);
+            margin: 1rem 0;
+        }
+
+        .service-period {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .feature-list {
+            text-align: left;
+            margin: 1.5rem 0;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.8rem;
+            color: #555;
+        }
+
+        .feature-item i {
+            color: var(--accent-color);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: all 0.3s;
+            font-weight: 500;
+            margin-top: 1rem;
+        }
+
+        .btn-info {
+            background: var(--light-bg);
+            color: var(--primary-color);
+            margin-right: 0.5rem;
+        }
+
+        .btn-obtain {
+            background: var(--accent-color);
+            color: white;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            z-index: 1000;
+        }
+
+        .modal-content {
+            background: white;
+            width: 90%;
+            max-width: 600px;
+            margin: 5% auto;
+            padding: 2rem;
+            border-radius: 15px;
+            position: relative;
+        }
+
+        .close-btn {
+            position: absolute;
+            right: 1.5rem;
+            top: 1.5rem;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #666;
+        }
+
+        .modal-title {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .modal-price {
+            display: inline-block;
+            background: var(--accent-color);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            margin: 1rem 0;
+        }
+
+        .modal-features {
+            margin: 1.5rem 0;
+        }
+
+        @media (max-width: 900px) {
+            .services-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="logo">CyberSentinel</a>
+            <div class="nav-links">
+                <a href="index.html">Inicio</a>
+                <a href="#servicios">Servicios</a>
+                <a href="contacto.html">Contacto</a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="services-container">
+        <!-- Plan Básico -->
+        <div class="service-card">
+            <div class="service-icon">
+                <i class="fas fa-shield-alt"></i>
+            </div>
+            <h3 class="service-title">Protección Básica</h3>
+            <div class="service-price">299€<span class="service-period">/año</span></div>
+            <div class="feature-list">
+                <div class="feature-item">
+                    <i class="fas fa-check"></i>
+                    <span>Firewall de Nueva Generación</span>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-check"></i>
+                    <span>Protección Anti-malware</span>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-check"></i>
+                    <span>Monitoreo Básico 24/7</span>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-check"></i>
+                    <span>Soporte por Email</span>
+                </div>
+            </div>
+            <button class="btn btn-info" onclick="openModal('modal-basic')">Más información</button>
+            <a href="contacto.html" class="btn btn-obtain">Obtener</a>
+        </div>
+
+        <!-- Plan Profesional -->
+        <div class="service-card">
+            <div class="service-icon">
+                <i class="fas fa-lock"></i>
+            </div>
+            <h3 class="service-title">Protección Profesional</h3>
+            <div class="service-price">599€<span class="service-period">/año</span></div>
+            <div class="feature-list">
+                <div class="feature-item">
+                    <i class="fas fa-check"></i>
+                    <span>Todo lo del Plan Básico</span>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-check"></i>
+                    <span>Sistema Anti-DDoS</span>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-check"></i>
+                    <span>Cifrado Avanzado</span>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-check"></i>
+                    <span>Soporte Prioritario 24/7</span>
+                </div>
+            </div>
+            <button class="btn btn-info" onclick="openModal('modal-pro')">Más información</button>
+            <a href="contacto.html" class="btn btn-obtain">Obtener</a>
+        </div>
+
+        <!-- Plan Enterprise -->
+        <div class="service-card">
+            <div class="service-icon">
+                <i class="fas fa-crown"></i>
+            </div>
+            <h3 class="service-title">Protección Enterprise</h3>
+            <div class="service-price">999€<span class="service-period">/año</span></div>
+            <div class="feature-list">
+                <div class="feature-item">
+                    <i class="fas fa-check"></i>
+                    <span>Todo lo del Plan Profesional</span>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-check"></i>
+                    <span>Protección Zero-Day</span>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-check"></i>
+                    <span>Análisis de Vulnerabilidades</span>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-check"></i>
+                    <span>Gestor de Cuenta Dedicado</span>
+                </div>
+            </div>
+            <button class="btn btn-info" onclick="openModal('modal-enterprise')">Más información</button>
+            <a href="contacto.html" class="btn btn-obtain">Obtener</a>
+        </div>
+    </div>
+    
+
+    <!-- Modales -->
+    <div id="modal-basic" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('modal-basic')">&times;</span>
+            <h2 class="modal-title">Plan de Protección Básica</h2>
+            <div class="modal-price">299€/mes</div>
+            <p>Protección esencial para pequeñas empresas y startups</p>
+            <div class="modal-features">
+                <h3>Características detalladas:</h3>
+                <ul>
+                    <li>Firewall de Nueva Generación con control de aplicaciones</li>
+                    <li>Protección Anti-malware con actualizaciones automáticas</li>
+                    <li>Sistema de monitoreo 24/7 con alertas básicas</li>
+                    <li>Soporte técnico por email con respuesta en 24h</li>
+                    <li>Backups diarios automatizados</li>
+                    <li>Reportes mensuales de seguridad</li>
+                </ul>
+            </div>
+            <a href="contacto.html" class="btn btn-obtain">Contratar ahora</a>
+        </div>
+    </div>
+
+    <div id="modal-pro" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('modal-pro')">&times;</span>
+            <h2 class="modal-title">Plan de Protección Profesional</h2>
+            <div class="modal-price">599€/mes</div>
+            <p>Solución completa para empresas en crecimiento</p>
+            <div class="modal-features">
+                <h3>Características detalladas:</h3>
+                <ul>
+                    <li>Todas las características del Plan Básico</li>
+                    <li>Protección DDoS con mitigación automática</li>
+                    <li>Sistema de cifrado de datos en reposo y en tránsito</li>
+                    <li>Soporte técnico 24/7 con respuesta en 4h</li>
+                    <li>Análisis de tráfico en tiempo real</li>
+                    <li>Protección avanzada de endpoints</li>
+                </ul>
+            </div>
+            <a href="contacto.html" class="btn btn-obtain">Contratar ahora</a>
+        </div>
+    </div>
+
+    <div id="modal-enterprise" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('modal-enterprise')">&times;</span>
+            <h2 class="modal-title">Plan de Protección Enterprise</h2>
+            <div class="modal-price">999€/mes</div>
+            <p>Máxima seguridad para grandes empresas</p>
+            <div class="modal-features">
+                <h3>Características detalladas:</h3>
+                <ul>
+                    <li>Todas las características del Plan Profesional</li>
+                    <li>Protección contra amenazas Zero-Day</li>
+                    <li>Análisis continuo de vulnerabilidades</li>
+                    <li>Gestor de cuenta dedicado 24/7</li>
+                    <li>Auditorías de seguridad trimestrales</li>
+                    <li>Formación personalizada para empleados</li>
+                </ul>
+            </div>
+            <a href="contacto.html" class="btn btn-obtain">Contratar ahora</a>
+        </div>
+    </div>
+
+    <script>
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = 'block';
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+        }
+
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>
